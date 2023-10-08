@@ -1,0 +1,8 @@
+---
+- hosts: 172.31.26.124
+  become: yes
+  tasks:
+          - name: install nginx
+            apt:
+                 name: nginx
+                 state: present
