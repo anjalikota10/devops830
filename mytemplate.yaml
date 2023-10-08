@@ -1,0 +1,21 @@
+---
+- hosts: mywebserver
+  become: yes
+  tasks: 
+      - name: i wnat to install apache2 on ubuntu
+        apt:
+          name: apache2
+          state: present
+        notify: restartwebserver
+      
+      - name: i wnat to replace apache2 template with my jinja template
+        template:
+           src: myindex.j2
+           dest: /var/www/html/index.html
+        notify: restartwebserver
+
+  handlers:
+    - name: restartwebserver
+      service:
+        name: apache2
+        state: restarted
