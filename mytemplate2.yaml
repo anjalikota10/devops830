@@ -9,7 +9,7 @@
           when: ansible_os_family == "Debian"
         notify: restartwebserver
       
-       - name: i want to install nginx on ubuntu
+      - name: i want to install nginx on ubuntu
         apt:
           name: nginx
           state: present
