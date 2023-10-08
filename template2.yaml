@@ -11,3 +11,10 @@
         apt:
           name: nginx
           state: present
+
+      - name: replace apache2 template with my jinja template
+        template:
+           src: myindex2.j2
+           dest: /var/www/html/index.html
+        notify: restartwebserver
+    
