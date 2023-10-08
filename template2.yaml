@@ -1,0 +1,13 @@
+---
+- hosts: myhosts
+  become: yes
+  tasks: 
+      - name: install apache2 on ubuntu
+        apt:
+          name: apache2
+          state: present
+      
+      - name: install nginx on ubuntu
+        apt:
+          name: nginx
+          state: present
