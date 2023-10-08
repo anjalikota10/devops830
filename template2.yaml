@@ -11,13 +11,3 @@
         apt:
           name: nginx
           state: present
-
-      - name: install apache2 on RedHat
-        yum:
-          name: apache2
-          state: present
-      
-      - name: install nginx on RedHat
-        yum:
-          name: nginx
-          state: present
