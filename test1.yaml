@@ -1,8 +1,9 @@
 ---
-- hosts: 172.31.26.124
+- hosts: mywebserver
   become: yes
   tasks:
           - name: install nginx
             apt:
                  name: nginx
                  state: present
+            when: ansible_os_family == "Debian"
