@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+      - name : install java openjdk8 on ubuntu 20.04
+        apt: 
+          name: "{{myopenjdk8forubuntu}}"
+          state: present
+        when: ansible_os_family == "Debian"
+
+      - name: install java openjdk8 on RedHat Machine 
+        yum:
+          name: "{{myopenjdk8forRedHat}}"
+          state: present
+        when: ansible_os_family == "RedHat"

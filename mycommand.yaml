@@ -1,0 +1,24 @@
+---
+- hosts: mywebserver
+  become: yes
+  tasks: 
+    - name: i want to run linux command on ansible node
+      command: hostname -f
+      register: myResult
+
+    - name: i want to display linux command on ansible node 
+      debug: 
+        msg: "{{myResultt}}"
+      ignore_errors: yes      
+
+    - name: i want to install git 
+      apt: 
+        name: git
+        state: present
+      when: myResult.stderr != ""
+
+    - name: i want to install wget 
+      apt: 
+        name: wget
+        state: present
+      when: myResult.stderr == ""
