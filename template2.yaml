@@ -6,11 +6,6 @@
         apt:
           name: apache2
           state: present
-      
-      - name: install nginx on ubuntu
-        apt:
-          name: nginx
-          state: present
 
       - name: replace apache2 template with my jinja template
         template:
